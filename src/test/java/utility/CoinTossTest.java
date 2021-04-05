@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CoinTossTest {
     @Test
     void testIfProbabilityOfHeadEqualsProbabilityOfTail() {
-        CoinToss head = new CoinToss("Head");
-        CoinToss tail = new CoinToss("Tail");
+        CoinToss head = new CoinToss(CoinToss.Coin.HEAD);
+        CoinToss tail = new CoinToss(CoinToss.Coin.TAIL);
 
-        assertEquals(head,tail);
+        assertEquals(head, tail);
     }
 }

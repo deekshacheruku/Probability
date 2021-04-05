@@ -1,13 +1,20 @@
 package utility;
 
-public class CoinToss {
-    private final String tossState;
+import java.util.Objects;
 
-    public CoinToss(String tossState) {
+public class CoinToss {
+    public enum Coin {
+        HEAD,
+        TAIL
+    }
+
+    final Coin tossState;
+
+    public CoinToss(Coin tossState) {
         this.tossState = tossState;
     }
 
-    private double getProbability(){
+    private double getProbability() {
         return 0.5;
     }
 
@@ -17,5 +24,10 @@ public class CoinToss {
         if (o == null || getClass() != o.getClass()) return false;
         CoinToss coinToss = (CoinToss) o;
         return Double.compare(coinToss.getProbability(), getProbability()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getProbability());
     }
 }
