@@ -4,18 +4,28 @@ import java.util.Objects;
 
 public class CoinToss {
     public enum Coin {
-        HEAD,
-        TAIL
+        HEAD(0.5),
+        TAIL(0.5);
+
+        private final double probability;
+
+        Coin(double probability) {
+            this.probability = probability;
+        }
+
+        private double getProbability() {
+            return this.probability;
+        }
     }
 
-    final Coin tossState;
+    private final Coin tossState;
 
     public CoinToss(Coin tossState) {
         this.tossState = tossState;
     }
 
-    private double getProbability() {
-        return 0.5;
+    public double eventTogether(CoinToss event) {
+        return tossState.getProbability() * event.tossState.getProbability();
     }
 
     @Override
@@ -23,11 +33,11 @@ public class CoinToss {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CoinToss coinToss = (CoinToss) o;
-        return Double.compare(coinToss.getProbability(), getProbability()) == 0;
+        return Double.compare(coinToss.tossState.getProbability(), tossState.getProbability()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getProbability());
+        return Objects.hash(tossState);
     }
 }
