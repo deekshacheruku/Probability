@@ -7,8 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CoinTossTest {
     static CoinToss headFirstEvent, headSecondEvent, tailFirstEvent, tailSecondEvent;
-    static double expectedProbability;
-    static double actualProbability;
+    static Probability expectedProbability;
+    static Probability actualProbability;
+    static int timesTossed;
 
     @BeforeAll
     static void initializations() {
@@ -20,38 +21,48 @@ public class CoinTossTest {
 
     @Test
     void testIfProbabilityOfHeadEqualsProbabilityOfTail() {
-        assertEquals(headFirstEvent, tailFirstEvent);
+        timesTossed = 1;
+        Probability headProbability = headFirstEvent.event(null, timesTossed);
+        Probability tailProbability = tailFirstEvent.event(null, timesTossed);
+
+        assertEquals(headProbability, tailProbability);
     }
 
     @Test
     void testIfProbabilityOfHeadAndHeadEventsOccurringTogetherIs0_25() {
-        expectedProbability = 0.25;
-        actualProbability = headFirstEvent.eventTogether(headSecondEvent);
+        timesTossed = 2;
+        expectedProbability = new Probability(0.25);
+        actualProbability = headFirstEvent.event(headSecondEvent, timesTossed);
 
         assertEquals(expectedProbability, actualProbability);
     }
 
     @Test
     void testIfProbabilityOfTailAndTailEventsOccurringTogetherIs0_25() {
-        expectedProbability = 0.25;
-        actualProbability = tailFirstEvent.eventTogether(tailSecondEvent);
+        timesTossed = 2;
+        expectedProbability = new Probability(0.25);
+        actualProbability = tailFirstEvent.event(tailSecondEvent, timesTossed);
 
         assertEquals(expectedProbability, actualProbability);
     }
 
     @Test
     void testIfProbabilityOfHeadAndTailEventsOccurringTogetherIs0_5() {
-        expectedProbability = 0.5;
-        actualProbability = headFirstEvent.eventTogether(tailSecondEvent);
+        timesTossed = 2;
+        expectedProbability = new Probability(0.5);
+        actualProbability = headFirstEvent.event(tailSecondEvent, timesTossed);
 
         assertEquals(expectedProbability, actualProbability);
     }
 
     @Test
     void testIfProbabilityOfTailAndHeadEventsOccurringTogetherIs0_5() {
-        expectedProbability = 0.5;
-        actualProbability = tailFirstEvent.eventTogether(headSecondEvent);
+        timesTossed = 2;
+        expectedProbability = new Probability(0.5);
+        actualProbability = tailFirstEvent.event(headSecondEvent, timesTossed);
 
         assertEquals(expectedProbability, actualProbability);
     }
+
+
 }

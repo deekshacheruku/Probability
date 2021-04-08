@@ -1,20 +1,14 @@
 package utility;
 
-import java.util.Objects;
+import static java.lang.Math.pow;
 
 public class CoinToss {
     public enum Coin {
-        HEAD(0.5),
-        TAIL(0.5);
+        HEAD(),
+        TAIL();
 
-        private final double probability;
-
-        Coin(double probability) {
-            this.probability = probability;
-        }
-
-        private double getProbability() {
-            return this.probability;
+        int getSampleSpace(int timesTossed) {
+            return (int) pow(2, timesTossed);
         }
     }
 
@@ -24,23 +18,16 @@ public class CoinToss {
         this.tossState = tossState;
     }
 
-    public double eventTogether(CoinToss event) {
-        if(tossState.name().equals(event.tossState.name())) {
-            return tossState.getProbability() * event.tossState.getProbability();
-        }
-        return tossState.getProbability();
+    int getPossibleOutcomes(Object obj) {
+        CoinToss event = (CoinToss) obj;
+        if (event == null || this.tossState.equals(event.tossState))
+            return 1;
+        return 2;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CoinToss coinToss = (CoinToss) o;
-        return Double.compare(coinToss.tossState.getProbability(), tossState.getProbability()) == 0;
+    public Probability event(Object event, int timesTossed) {
+        return new Probability(getPossibleOutcomes(event) / (double) tossState.getSampleSpace(timesTossed));
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(tossState);
-    }
+
 }
