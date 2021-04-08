@@ -29,5 +29,8 @@ public class CoinToss {
         return new Probability(getPossibleOutcomes(event) / (double) tossState.getSampleSpace(timesTossed));
     }
 
+    public Probability eventNotOccurred(Object event, int timesTossed) {
+        return new Probability(1 - (this.event(event, timesTossed)).getProbabilityValue());
+    }
 
 }
