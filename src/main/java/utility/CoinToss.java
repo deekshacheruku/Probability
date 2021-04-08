@@ -25,7 +25,10 @@ public class CoinToss {
     }
 
     public double eventTogether(CoinToss event) {
-        return tossState.getProbability() * event.tossState.getProbability();
+        if(tossState.name().equals(event.tossState.name())) {
+            return tossState.getProbability() * event.tossState.getProbability();
+        }
+        return tossState.getProbability();
     }
 
     @Override

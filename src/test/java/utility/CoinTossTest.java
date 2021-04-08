@@ -16,7 +16,6 @@ public class CoinTossTest {
         headSecondEvent = new CoinToss(CoinToss.Coin.HEAD);
         tailFirstEvent = new CoinToss(CoinToss.Coin.TAIL);
         tailSecondEvent = new CoinToss(CoinToss.Coin.TAIL);
-        expectedProbability = 0.25;
     }
 
     @Test
@@ -26,6 +25,7 @@ public class CoinTossTest {
 
     @Test
     void testIfProbabilityOfHeadAndHeadEventsOccurringTogetherIs0_25() {
+        expectedProbability = 0.25;
         actualProbability = headFirstEvent.eventTogether(headSecondEvent);
 
         assertEquals(expectedProbability, actualProbability);
@@ -33,20 +33,23 @@ public class CoinTossTest {
 
     @Test
     void testIfProbabilityOfTailAndTailEventsOccurringTogetherIs0_25() {
+        expectedProbability = 0.25;
         actualProbability = tailFirstEvent.eventTogether(tailSecondEvent);
 
         assertEquals(expectedProbability, actualProbability);
     }
 
     @Test
-    void testIfProbabilityOfHeadAndTailEventsOccurringTogetherIs0_25() {
+    void testIfProbabilityOfHeadAndTailEventsOccurringTogetherIs0_5() {
+        expectedProbability = 0.5;
         actualProbability = headFirstEvent.eventTogether(tailSecondEvent);
 
         assertEquals(expectedProbability, actualProbability);
     }
 
     @Test
-    void testIfProbabilityOfTailAndHeadEventsOccurringTogetherIs0_25() {
+    void testIfProbabilityOfTailAndHeadEventsOccurringTogetherIs0_5() {
+        expectedProbability = 0.5;
         actualProbability = tailFirstEvent.eventTogether(headSecondEvent);
 
         assertEquals(expectedProbability, actualProbability);
