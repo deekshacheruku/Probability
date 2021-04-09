@@ -9,10 +9,6 @@ public class Probability {
         this.probabilityValue = probability;
     }
 
-    public double getProbabilityValue() {
-        return probabilityValue;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
