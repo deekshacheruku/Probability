@@ -68,7 +68,7 @@ public class CoinTossTest {
     void testIfProbabilityOfTailEventNotOccurringIs0_5() {
         timesTossed = 1;
         expectedProbability = new Probability(0.5);
-        actualProbability = headFirstEvent.eventNotOccurred(null, timesTossed);
+        actualProbability = headFirstEvent.eventNotOccurred(timesTossed);
 
         assertEquals(expectedProbability, actualProbability);
     }
@@ -77,7 +77,7 @@ public class CoinTossTest {
     void testIfProbabilityOfHeadEventNotOccurringIs0_5() {
         timesTossed = 1;
         expectedProbability = new Probability(0.5);
-        actualProbability = tailFirstEvent.eventNotOccurred(null, timesTossed);
+        actualProbability = tailFirstEvent.eventNotOccurred(timesTossed);
 
         assertEquals(expectedProbability, actualProbability);
     }

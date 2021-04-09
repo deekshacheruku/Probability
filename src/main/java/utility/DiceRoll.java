@@ -13,8 +13,14 @@ public class DiceRoll {
         FIVE,
         SIX;
 
+        private final int totalStates = 6;
+
+        public int getTotalStates() {
+            return totalStates;
+        }
+
         int getSampleSpace(int timesRolled) {
-            return (int) pow(6, timesRolled);
+            return (int) pow(totalStates, timesRolled);
         }
     }
 
@@ -39,7 +45,7 @@ public class DiceRoll {
 
     public Probability eventNotOccurred(int timesRolled) {
         DecimalFormat df = new DecimalFormat("#.##");
-        double result = 1 - (5 / (double) rollState.getSampleSpace(timesRolled));
+        double result = 1 - ((rollState.getTotalStates() - 1) / (double) rollState.getSampleSpace(timesRolled));
         return new Probability(Double.parseDouble(df.format(result)));
     }
 }

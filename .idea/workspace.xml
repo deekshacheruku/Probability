@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48d59ae4-9acb-4944-9cec-c4395bccd608" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utility/DiceRoll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utility/DiceRollTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GeometricShapes" beforeDir="false" afterPath="$PROJECT_DIR$/../GeometricShapes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/CoinToss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/CoinToss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utility/DiceRoll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utility/DiceRoll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Wallet" beforeDir="false" afterPath="$PROJECT_DIR$/../Wallet" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +49,27 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.DiceRollTest">
+    <configuration name="CoinTossTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;utility.CoinTossTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="DiceRollTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -77,27 +97,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;utility.DiceRollTest.testIfProbabilityOfRollingFourEventNotOccurringIs0_16&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="DiceRollTest.testIfProbabilityOfRollingOneAndRollingTwoEventsOccurringTogetherIs0_08" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;utility.DiceRollTest.testIfProbabilityOfRollingOneAndRollingTwoEventsOccurringTogetherIs0_08&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -158,10 +157,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.DiceRollTest" />
+        <item itemvalue="Gradle.CoinTossTest" />
         <item itemvalue="Gradle.DiceRollTest.testIfProbabilityOfRollingFourEventNotOccurringIs0_16" />
         <item itemvalue="Gradle.DiceRollTest.testIfProbabilityOfRollingThreeAndRollingThreeEventsOccurringTogetherIs0_06" />
         <item itemvalue="Gradle.DiceRollTest.testIfProbabilityOfRollingOneIsEqualToProbabilityOfRollingTwo" />
-        <item itemvalue="Gradle.DiceRollTest.testIfProbabilityOfRollingOneAndRollingTwoEventsOccurringTogetherIs0_08" />
       </list>
     </recent_temporary>
   </component>

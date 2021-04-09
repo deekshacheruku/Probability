@@ -7,8 +7,14 @@ public class CoinToss {
         HEAD(),
         TAIL();
 
+        private final int totalStates = 2;
+
+        public int getTotalStates() {
+            return totalStates;
+        }
+
         int getSampleSpace(int timesTossed) {
-            return (int) pow(2, timesTossed);
+            return (int) pow(totalStates, timesTossed);
         }
     }
 
@@ -29,8 +35,8 @@ public class CoinToss {
         return new Probability(getPossibleOutcomes(event) / (double) tossState.getSampleSpace(timesTossed));
     }
 
-    public Probability eventNotOccurred(Object event, int timesTossed) {
-        return new Probability(1 - (this.event(event, timesTossed)).getProbabilityValue());
+    public Probability eventNotOccurred(int timesTossed) {
+        return new Probability(1 - ((tossState.getTotalStates() - 1) / (double) tossState.getSampleSpace(timesTossed)));
     }
 
 }
